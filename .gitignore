@@ -1,0 +1,11 @@
+/__pycache__
+/build
+/dist
+
+*.spec
+*.log
+*.pyc
+
+ShibuyaTools.exe
+test.py
+credentials.py
