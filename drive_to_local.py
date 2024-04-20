@@ -48,7 +48,7 @@ def replace_text_in_hazy(instance_worker):
                                 else:
                                     file.write(f"{new_text[0]},{new_text[2]}\n")
                             found_id = False
-                            len_text_replaced = len(list_value_sheet[1:])
+                            len_text_replaced = len(list_value_sheet[3:])
                             continue
                         if id_ == list_value_sheet[1][0]:
                             found_id = True
@@ -86,7 +86,7 @@ def replace_text_in_hazy_localization(instance_worker):
                         else:
                             file.write(f"{new_text[0]},{new_text[1]}\n")
                     found_id = False
-                    len_text_replaced = len(list_value_sheet[1:])
+                    len_text_replaced = len(list_value_sheet[3:])
                     continue
                 if id_ == list_value_sheet[1][0]:
                     found_id = True
