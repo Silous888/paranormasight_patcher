@@ -7,11 +7,11 @@ class CheckboxWindowFile(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Choix des fichiers à patch')
-        self.setGeometry(100, 100, 1200, 600)
+        self.setGeometry(100, 100, 800, 400)
 
         layout = QGridLayout()
-        num_rows = [23]
-        num_cols = [4]
+        num_rows = [10]
+        num_cols = [5]
         nom_checkboxes = files_names
 
         self.checkboxes = [[]]  # Pour stocker les checkboxes

@@ -139,6 +139,44 @@ def copy_data_in_steam_game_folder(game_folder_name, data_to_copy, overwrite=Tru
     return 0
 
 
+def copy_data_in_steam_game_folder_paranormasight(game_folder_name, data_to_copy, overwrite=True) -> int:
+    """copy file of folder in a specific steam game folder
+
+    Args:
+        game_folder_name (str): exact name of the steam game folder
+        data_to_copy (str): file of folder to copy
+        overwrite (bool, optional): overwrite or not if data already exists. Defaults to True.
+
+    Returns:
+        int: 0 if finshed without error, error code if not 0
+
+    error code:
+    -1 if path of steam not found in register
+    -2 if libraryfolders.vdf not found
+    -3 if game not found in steam libraries
+    -4 game_folder_name not a string
+    -5 data_to_copy path does not exist
+    """
+    if not _os.path.exists(data_to_copy) or not isinstance(data_to_copy, str):
+        return -5
+    game_path_tmp = find_game_path(game_folder_name)
+    game_path = _os.path.join(game_path_tmp, "PARANORMASIGHT_Data\\StreamingAssets\\")
+    if isinstance(game_path, int):
+        return game_path
+    if (_os.path.isfile(data_to_copy) and (overwrite or
+       not _os.path.exists(_os.path.join(game_path, _os.path.basename(data_to_copy))))):
+        _shutil.copy(data_to_copy, game_path)
+
+    for root, _, files in _os.walk(data_to_copy):
+        paste_folder = _os.path.join(game_path, root[len(data_to_copy):].lstrip("\\"))
+        if not _os.path.exists(paste_folder):
+            _os.makedirs(paste_folder)
+        for file in files:
+            if overwrite or not _os.path.exists(_os.path.join(paste_folder, file)):
+                _shutil.copy(_os.path.join(root, file), paste_folder)
+    return 0
+
+
 def copy_data_from_steam_game_folder(game_folder_name, dest, data_to_copy="", overwrite=True) -> int:
     """copy file or folder from a specific steam game folder in a dest folder
 

@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>428 patch automatique</string>
+   <string>Paranormasight patch automatique</string>
   </property>
   <property name="windowIcon">
    <iconset resource="ressource.qrc">
