@@ -528,4 +528,4 @@ def create_file_with_ownership(email, file_name, folder_id):
             }
         ]
     }
-    file = _drive_service.files().create(body=file_metadata, fields='id').execute()
+    _ = _drive_service.files().create(body=file_metadata, fields='id').execute()

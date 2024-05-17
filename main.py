@@ -1,10 +1,10 @@
+import os
 from fileFolderUI import FileFolderUI
 import utils
 import drive_to_local
 from API import steam_game_api
 import paranormasight_tools_api
 
-import os
 
 # pyinstaller --onefile --name Paranormasight_Patch_Automatique --icon=./ressource/DreamteamLogo.ico main.py
 
