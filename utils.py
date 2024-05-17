@@ -53,8 +53,8 @@ def etats_liste(liste_de_listes):
 def import_names_files():
     global files_names
     global total_progress
-    TEXT_SNS_FOLDER_DRIVE = "1uubK1tqm4K5RP9KiezJfoPZ86Az5eAiw"
-    list_sheet_files = google_drive_api.list_files_in_folder(TEXT_SNS_FOLDER_DRIVE)
+    HAZY_SCRIPT_DRIVE = "1hOkZotQQ_5-W3C4KY2lxLtdouIUjiloG"
+    list_sheet_files = google_drive_api.list_files_in_folder(HAZY_SCRIPT_DRIVE)
     for sublist in list_sheet_files:
         files_names.append(sublist[0])
     files_names.sort()

@@ -60,7 +60,7 @@ class _Worker(QObject):
     signal_listes_fichiers_bool = pyqtSignal(list)
     signal_listes_images_bool = pyqtSignal(list)
 
-    taille = 92
+    taille = 45
     tailles = [17, 139, 5]
     tailles_images = [9, 6, 5, 10, 10, 4, 9, 3, 9, 4]
     # Initialiser la liste principale
@@ -295,9 +295,9 @@ class _MainWindow(QMainWindow):
     def enable_ui(self):
         """enable ui when process is done"""
         self.ui.checkBox_fichiers.setEnabled(True)
-        self.ui.checkBox_imagesDDS.setEnabled(True)
-        self.ui.checkBox_imagesZIP.setEnabled(True)
-        self.ui.checkBox_videos.setEnabled(True)
+        # self.ui.checkBox_imagesDDS.setEnabled(True)
+        # self.ui.checkBox_imagesZIP.setEnabled(True)
+        # self.ui.checkBox_videos.setEnabled(True)
         self.ui.label_process.hide()
         self.ui.label_done.show()
         self.ui.pushButton_process.setEnabled(True)

@@ -6,6 +6,6 @@
 *.log
 *.pyc
 
-ShibuyaTools.exe
+tool_paranormasight
 test.py
 credentials.py

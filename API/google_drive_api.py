@@ -505,3 +505,27 @@ def delete_all_files_owned_and_not_shared():
     for file in files:
         if is_file_owned_and_not_shared(file[1]):
             delete_file(file[1])
+
+
+def give_ownership(id_file, email):
+    _drive_service.permissions().create(
+        fileId=id_file,
+        body={'role': 'owner', 'type': 'user', 'emailAddress': email},
+        transferOwnership=True  # Transférer la propriété
+    ).execute()
+
+
+def create_file_with_ownership(email, file_name, folder_id):
+    file_metadata = {
+        'name': file_name,
+        'mimeType': 'application/vnd.google-apps.document',
+        'parents': [folder_id],  # Remplacez 'folder_id' par l'ID du dossier parent si nécessaire
+        'permissions': [
+            {
+                'type': 'user',
+                'role': 'owner',
+                'emailAddress': email
+            }
+        ]
+    }
+    _ = _drive_service.files().create(body=file_metadata, fields='id').execute()
